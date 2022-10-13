@@ -3,16 +3,17 @@ import java.util.HashSet;
 
 class WordsChecker {
 
-    protected String sentence;
+    private final String sentence;
+    private final Set<String> splitSentence;
 
     public WordsChecker(String Sentence) {
         this.sentence = Sentence;
+        splitSentence = new HashSet<>();
     }
 
     public boolean hasWord(String SearchWord) {
-        Set<String> splitSentence = new HashSet<>();
-        String[] wordsArray = sentence.split("\\P{IsAlphabetic}+");
 
+        String[] wordsArray = sentence.split("\\P{IsAlphabetic}+");
         for (String value : wordsArray) {
             splitSentence.add(value.toLowerCase());
         }
