@@ -3,21 +3,17 @@ import java.util.HashSet;
 
 class WordsChecker {
 
-    private final String sentence;
     private final Set<String> splitSentence;
 
     public WordsChecker(String Sentence) {
-        this.sentence = Sentence;
         splitSentence = new HashSet<>();
-    }
-
-    public boolean hasWord(String SearchWord) {
-
-        String[] wordsArray = sentence.split("\\P{IsAlphabetic}+");
+        String[] wordsArray = Sentence.split("\\P{IsAlphabetic}+");
         for (String value : wordsArray) {
             splitSentence.add(value.toLowerCase());
         }
+    }
 
+    public boolean hasWord(String SearchWord) {
         return splitSentence.contains(SearchWord.toLowerCase());
     }
 
